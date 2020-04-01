@@ -1,8 +1,8 @@
 'use strict';
 
 const TASK_COUNT = 3;
-const siteMainElm = document.querySelector('.main');
-const siteMenuContainerElm = siteMainElm.querySelector('.main__control');
+const siteMainElm = document.querySelector(`.main`);
+const siteMenuContainerElm = siteMainElm.querySelector(`.main__control`);
 
 
 const createSiteMenuTemplate = () => {
@@ -116,7 +116,7 @@ const createBoardAndBoardFiltersTemplate = () => {
 };
 
 
-const renderTemplate = (container, template, place = 'beforeend') => {
+const renderTemplate = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
 };
 
@@ -124,8 +124,8 @@ renderTemplate(siteMenuContainerElm, createSiteMenuTemplate());
 renderTemplate(siteMainElm, createFilterTemplate());
 renderTemplate(siteMainElm, createBoardAndBoardFiltersTemplate());
 
-const boardElm = siteMainElm.querySelector('.board');
-const boardTasksElm = siteMainElm.querySelector('.board__tasks');
+const boardElm = siteMainElm.querySelector(`.board`);
+const boardTasksElm = siteMainElm.querySelector(`.board__tasks`);
 
 const createTaskEditTemplate = () => {
   return (
@@ -380,7 +380,7 @@ const createLoadMoreBtnTemplate = () => {
   );
 };
 
-renderTemplate(boardTasksElm, createTaskEditTemplate(), 'afterbegin');
+renderTemplate(boardTasksElm, createTaskEditTemplate(), `afterbegin`);
 
 for (let i = 0; i < TASK_COUNT; i++) {
   renderTemplate(boardTasksElm, createDefaultTaskTemplate());
