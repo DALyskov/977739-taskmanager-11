@@ -5,8 +5,8 @@ import {NoTasks as NoTasksComponent} from '../components/no-tasks.js';
 import {LoadMoreBtn as LoadMoreBtnComponent} from '../components/load-more-btn.js';
 import {SortType} from '../components/board-and-board-filters.js';
 
-const SHOWING_TASKS_COUNT_ON_START = 2;
-const SHOWING_TASKS_COUNT_BY_BUTTON = 2;
+const SHOWING_TASKS_COUNT_ON_START = 8;
+const SHOWING_TASKS_COUNT_BY_BUTTON = 8;
 
 const renderTask = (boardTasksElm, task) => {
   const onEscKeyDown = (evt) => {
