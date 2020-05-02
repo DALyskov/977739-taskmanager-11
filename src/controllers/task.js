@@ -38,11 +38,11 @@ export class TaskController {
     });
 
     this._taskComponent.setArchiveButtonClickHandler(() => {
-      this._onDataChange(task, Object.assign({}, task, {isArchive: !task.isArchive}));
+      this._onDataChange(this, task, Object.assign({}, task, {isArchive: !task.isArchive}));
     });
 
     this._taskComponent.setFavoritesButtonClickHandler(() => {
-      this._onDataChange(task, Object.assign({}, task, {isFavorite: !task.isFavorite}));
+      this._onDataChange(this, task, Object.assign({}, task, {isFavorite: !task.isFavorite}));
     });
 
     if (oldTaskEditComponent && oldTaskComponent) {

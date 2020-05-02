@@ -1,13 +1,20 @@
 import {AbstractComponent} from './abstract-component.js';
 
-const createFilterMarkup = (name, count) => {
+const FILTER_ID_PREFIX = `filter__`;
+
+const getFilterNameById = (id) => {
+  return id.substring(FILTER_ID_PREFIX.length);
+};
+
+const createFilterMarkup = (filter, isChecked) => {
+  const {name, count} = filter;
   return (
     `<input
         type="radio"
         id="filter__${name}"
         class="filter__input visually-hidden"
         name="filter"
-        checked
+        ${isChecked ? `checked` : ``}
       />
     <label for="filter__${name}" class="filter__label">
       ${name} <span class="filter__${name}-count">${count}</span>
@@ -16,7 +23,7 @@ const createFilterMarkup = (name, count) => {
 };
 
 const createFilterTemplate = (filters) => {
-  const filtersMarkup = filters.map((v) => createFilterMarkup(v.name, v.count)).join(`\n`);
+  const filtersMarkup = filters.map((it) => createFilterMarkup(it, it.checked)).join(`\n`);
 
   return (
     `<section class="main__filter filter container">
@@ -33,6 +40,13 @@ class Filter extends AbstractComponent {
 
   getTemplate() {
     return createFilterTemplate(this._filters);
+  }
+
+  setFilterChangeHandler(handler) {
+    this.getElement().addEventListener(`change`, (evt) => {
+      const filterName = getFilterNameById(evt.target.id);
+      handler(filterName);
+    });
   }
 }
 
