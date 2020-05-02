@@ -1,12 +1,11 @@
-const castTimeFormat = (value) => {
-  return value < 10 ? `0${value}` : String(value);
-};
+import moment from "moment";
 
 const formatTime = (date) => {
-  const hours = castTimeFormat(date.getHours() % 12);
-  const minutes = castTimeFormat(date.getMinutes());
+  return moment(date).format(`hh:mm`);
+};
 
-  return `${hours}:${minutes}`;
+const formatDate = (date) => {
+  return moment(date).format(`DD MMMM`);
 };
 
 const isRepeating = (repeatingDays) => {
@@ -23,4 +22,4 @@ const isOneDay = (dateA, dateB) => {
   return a.diff(b, `days`) === 0 && dateA.getDate() === dateB.getDate();
 };
 
-export {formatTime, isRepeating, isOverdueDate, isOneDay};
+export {formatTime, formatDate, isRepeating, isOverdueDate, isOneDay};

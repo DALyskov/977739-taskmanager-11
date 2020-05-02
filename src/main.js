@@ -7,23 +7,21 @@ import {BoardAndBoardFilters as BoardAndBoardFiltersComponent} from './component
 
 import {Tasks as TasksModel} from "./models/tasks.js";
 
-import {generateFilters} from './mock/filter.js';
+// import {generateFilters} from './mock/filter.js';
 import {generateTasks} from "./mock/task.js";
 
 const TASK_COUNT = 22;
 
 const siteMainElm = document.querySelector(`.main`);
 const siteMenuContainerElm = siteMainElm.querySelector(`.main__control`);
-const filters = generateFilters();
+render(siteMenuContainerElm, new SiteMenuComponent());
+
 const tasks = generateTasks(TASK_COUNT);
 const tasksModel = new TasksModel();
 tasksModel.setTasks(tasks);
 
-render(siteMenuContainerElm, new SiteMenuComponent(), RenderPosition.BEFOREEND);
-
-// render(siteMainElm, new FilterComponent(filters), RenderPosition.BEFOREEND);
 const filterController = new FilterController(siteMainElm, tasksModel);
-filterController.render(filters);
+filterController.render();
 
 const boardComponent = new BoardAndBoardFiltersComponent();
 
