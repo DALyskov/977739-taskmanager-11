@@ -1,4 +1,4 @@
-import {RenderPosition, render, replace} from '../utils/render.js';
+import {render, replace} from '../utils/render.js';
 import {getTasksByFilter} from '../utils/filter.js';
 
 import {Filter as FilterComponent} from '../components/filter.js';

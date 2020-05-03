@@ -15,7 +15,15 @@ const MONTH_NAMES = [
 
 const DAYS = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
 
-const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
+const color = {
+  BLACK: `black`,
+  YELLOW: `yellow`,
+  BLUE: `blue`,
+  GREEN: `green`,
+  PINK: `pink`,
+};
+
+const COLORS = Object.values(color);
 
 const FilterType = {
   ALL: `all`,
@@ -29,6 +37,7 @@ const FilterType = {
 export {
   MONTH_NAMES,
   DAYS,
+  color,
   COLORS,
   FilterType,
 };
